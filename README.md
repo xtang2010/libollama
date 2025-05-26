@@ -125,7 +125,7 @@ You can also skip the allocation of the context, simply pass in "NULL" when call
 
 #### Data structure char *param_json
 
-Most of the libollama API take a "char *param_json", this is the optional parameters you can pass in to control the LLM behavier in more detail. For example, you can pass below to ollama_chat() or ollama_generate() to switch them to "stream off" mode. 
+Most of the libollama API take a "char *param_json", this is the additional parameters you can pass in to control the LLM behavier in more detail. For example, you can pass below to ollama_chat() or ollama_generate() to switch them to "stream off" mode. 
 
 ```c
 char *param_json = "{\"stream\": false}";
