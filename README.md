@@ -130,7 +130,7 @@ Most of the libollama API take a "char *param_json", this is the additional para
 ```c
 char *param_json = "{\"stream\": false}";
 
-ollama_chat(ollama, model, messages, param.json, &res);
+ollama_chat(ollama, model, messages, param_json, &res);
 ```
 
 For more detail of what you can set as the parameters, please check ollama api document (https://github.com/ollama/ollama/blob/main/docs/api.md#generate-a-completion) 
