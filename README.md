@@ -123,6 +123,18 @@ ollama_close(ollama);
 
 You can also skip the allocation of the context, simply pass in "NULL" when calling the APIs. In this case, the API will then create a context internally and use environment "OLLAMA_HOST" as the URL.
 
+#### Data structure char *param_json
+
+Most of the libollama API take a "char *param_json", this is the optional parameters you can pass in to control the LLM behavier in more detail. For example, you can pass below to ollama_chat() or ollama_generate() to switch them to "stream off" mode. 
+
+```c
+char *param_json = "{\"stream\": false}";
+
+ollama_chat(ollama, model, messages, param.json, &res);
+```
+
+For more detail of what you can set as the parameters, please check ollama api document (https://github.com/ollama/ollama/blob/main/docs/api.md#generate-a-completion) 
+
 #### Data structure ollama_result_t
 
 All the API return an int as a result, where 0 indicate the call is successed, and other value indicating a failure. For more result, you need to pass in a "ollama_result_t *" to the API, to tell libollama how you wan the result back.
@@ -142,7 +154,6 @@ typedef union {
         void *callback_handle;
     } call;
 } ollama_result_t;
-
 ```
 
 There are multiple ways of request result, this decided by "ollama_reuslt_type_t type;"
