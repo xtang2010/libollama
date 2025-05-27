@@ -67,14 +67,29 @@ This will create a Makefile and a bunch of other files. You can then compile it:
 make
 ```
 
-You can also compiled the additional test code and run a test:
+And install it with `make install` if you want. By default it installs the headers `/usr/local/include/cjson` and the libraries to `/usr/local/lib`.
 
+#### Building the test code
+
+Under test/ subdirectory there are additional codes for testing the library. You can also compiled them:
+
+On QNX, simply go into test and build
 ```
+cd test
+make
+```
+This will built for both x86_64 and aarch64 binaries. If you only want x86_64 binary, simplely do this:
+```
+cd test/nto-x86_64-o
+make
+```
+
+On Linux, you can do this.
+```
+cd build
 make test_all
 make test
 ```
-
-And install it with `make install` if you want. By default it installs the headers `/usr/local/include/cjson` and the libraries to `/usr/local/lib`.
 
 ### Use libollama in your program. 
 
